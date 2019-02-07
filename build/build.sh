@@ -67,10 +67,13 @@ flash() {
 	echo "Flash:";
 
 	# erase device
-	nrfjprog --family nRF51 -e
+	nrfjprog --family nRF51 -e;
 
-	# falsh binary
-	nrfjprog --family nRF51 --program output/nrf51422_xxac.hex
+	# flash binary
+	nrfjprog --family nRF51 --program output/nrf51422_xxac.hex;
+	
+	# restart device
+	nrfjprog --family nRF51 -r;
 
 	echo "Flash: [ done ]"
 	print_break_line
