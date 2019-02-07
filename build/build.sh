@@ -18,13 +18,24 @@ exit_report() {
 
 	if [ $rv -gt 1 ]; then
 		echo "";
-		echo "Error: build failed";
+		echo "=================================";
+		echo "==                             ==";
+		echo "==    Error: build failed      ==";
+		echo "==                             ==";
+		echo "==          (︶︹︶)           ==";
+		echo "==                             ==";
+		echo "=================================";
 	fi
 
 	if [ $rv -eq 0 ]; then
 		echo "";
-		echo "==>>  All done                 <<==";
-		echo "==>>  Congratulations \(^-^)/  <<==";
+		echo "=================================";
+		echo "==                             ==";
+		echo "==      Done Sucessfully       ==";
+		echo "==                             ==";
+		echo "==       *\_(^o^)_/*           ==";
+		echo "==                             ==";
+		echo "=================================";
 	fi
 
 	exit $rv
