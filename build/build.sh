@@ -1,0 +1,80 @@
+#!/bin/sh
+
+# exit on error
+set -e
+
+# trap the exit status
+trap "exit_report" EXIT
+
+print_break_line()
+{
+	echo "";
+	echo "===================================";
+	echo "";
+}
+
+exit_report() {
+	rv=$?					# return value
+
+	if [ $rv -gt 1 ]; then
+		echo "";
+		echo "Error: build failed";
+	fi
+
+	if [ $rv -eq 0 ]; then
+		echo "";
+		echo "==>>  All done                 <<==";
+		echo "==>>  Congratulations \(^-^)/  <<==";
+	fi
+
+	exit $rv
+}
+
+clean() {
+
+	echo "Clean:";
+
+	make clean;
+
+	echo "Clean [ done ]";
+	print_break_line
+}
+
+build() {
+	echo "Build:";
+	make;
+
+	echo "Build [ done ]";
+	print_break_line
+}
+
+merge() {
+mergehex -m ./output/nrf51422_xxac.hex ../nRF5_SDK/components/softdevice/s130/hex/s130_nrf51_2.0.1_softdevice.hex -o ./output/nrf51422_xxac_with_softdevice.hex
+}
+
+flash() {
+	echo "Flash:";
+
+	# erase device
+	nrfjprog --family nRF51 -e
+
+	# falsh binary
+	nrfjprog --family nRF51 --program output/nrf51422_xxac.hex
+
+	echo "Flash: [ done ]"
+	print_break_line
+}
+
+
+#####################################
+#									#
+# entry point						#
+#									#
+#####################################
+clean;
+build;
+#merge;
+flash;
+
+
+
