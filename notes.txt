@@ -13,3 +13,8 @@ GND   = GND
 # LOG
 #
 NRF logs are redirected to UART
+
+#
+# ADC
+#
+p0.1 = ADC input
