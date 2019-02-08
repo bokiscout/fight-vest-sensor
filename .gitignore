@@ -1,0 +1,8 @@
+*.swo
+*.swp
+*minicom*.*log*
+cscope.out
+tags
+*.directory
+
+
