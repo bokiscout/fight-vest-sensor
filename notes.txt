@@ -1,0 +1,15 @@
+#
+# NOTES
+#
+
+#
+# UART
+#
+P0.9  = TX
+P0.11 = RX
+GND   = GND
+
+#
+# LOG
+#
+NRF logs are redirected to UART
