@@ -64,7 +64,8 @@
 #if  NRF_BLE_GATT_ENABLED
 // <o> NRF_BLE_GATT_MAX_MTU_SIZE - Static maximum MTU size that is passed to the @ref sd_ble_enable function. 
 #ifndef NRF_BLE_GATT_MAX_MTU_SIZE
-#define NRF_BLE_GATT_MAX_MTU_SIZE 158
+#define NRF_BLE_GATT_MAX_MTU_SIZE 158   // <- default
+// #define NRF_BLE_GATT_MAX_MTU_SIZE 23 // <- multiprotocol example
 #endif
 
 #endif //NRF_BLE_GATT_ENABLED
@@ -81,7 +82,8 @@
  
 
 #ifndef PEER_MANAGER_ENABLED
-#define PEER_MANAGER_ENABLED 1
+#define PEER_MANAGER_ENABLED 1		// <- default
+// #define PEER_MANAGER_ENABLED 0	// <- multiprotocol
 #endif
 
 // </h> 
@@ -260,7 +262,8 @@
 // <e> ADC_ENABLED - nrf_drv_adc - Driver for ADC peripheral (nRF51)
 //==========================================================
 #ifndef ADC_ENABLED
-#define ADC_ENABLED 1
+#define ADC_ENABLED 1		// <- default
+// #define ADC_ENABLED 0	// <- multiprotocol
 #endif
 #if  ADC_ENABLED
 // <o> ADC_CONFIG_IRQ_PRIORITY  - Interrupt priority
@@ -3120,7 +3123,8 @@
 // <e> FDS_ENABLED - fds - Flash data storage module
 //==========================================================
 #ifndef FDS_ENABLED
-#define FDS_ENABLED 1
+#define FDS_ENABLED 1		// <- default
+// #define FDS_ENABLED 0	// <- multiprotocol
 #endif
 #if  FDS_ENABLED
 // <o> FDS_OP_QUEUE_SIZE - Size of the internal queue. 
@@ -3168,7 +3172,8 @@
 // <e> FSTORAGE_ENABLED - fstorage - Flash storage module
 //==========================================================
 #ifndef FSTORAGE_ENABLED
-#define FSTORAGE_ENABLED 1
+#define FSTORAGE_ENABLED 1		// <- default
+// #define FSTORAGE_ENABLED 0	// <- multiprotocol
 #endif
 #if  FSTORAGE_ENABLED
 // <o> FS_QUEUE_SIZE - Configures the size of the internal queue. 
