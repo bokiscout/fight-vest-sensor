@@ -1,0 +1,27 @@
+Functions init order and initialisation details
+
+#
+# Basic Notes
+#
+
+== CLK
+-> when using soft device low LFCL is enabled automatically
+-> when NOT using sfot device LFCLK is not enabled autoamtically
+
+
+
+NRF_LOG_INIT()
+-> arg = NULL
+-> no time stamp function provided
+
+
+timers_init()
+	app_timer_init()
+	-> prescaller = 0
+	-> queue size = 4
+	-> false -> no scheduelr function
+
+	app_tmer_create()
+	[what is the source of te timer ids]
+	-> batery_timer
+	-> 
