@@ -1,11 +1,11 @@
 PROJECT_NAME     := adc_pca10028
-TARGETS          := nrf51422_xxac
+TARGETS          := nrf51822_xxaa
 OUTPUT_DIRECTORY := output
 
 SDK_ROOT := ../nRF5_SDK
 PROJ_DIR := ../source
 
-$(OUTPUT_DIRECTORY)/nrf51422_xxac.out: \
+$(OUTPUT_DIRECTORY)/nrf51822_xxaa.out: \
   LINKER_SCRIPT  := adc_gcc_nrf51.ld
 
 # Source files common to all targets
@@ -183,7 +183,7 @@ CFLAGS += -D__HEAP_SIZE=0
 CFLAGS += -DNRF51
 CFLAGS += -DS130
 CFLAGS += -DBLE_STACK_SUPPORT_REQD
-CFLAGS += -DNRF51422
+CFLAGS += -DNRF51822
 CFLAGS += -DBOARD_PCA10028
 CFLAGS += -DNRF_SD_BLE_API_VERSION=2
 CFLAGS += -mcpu=cortex-m0
@@ -205,7 +205,7 @@ ASMFLAGS += -D__HEAP_SIZE=0
 ASMFLAGS += -DNRF51
 ASMFLAGS += -DS130
 ASMFLAGS += -DBLE_STACK_SUPPORT_REQD
-ASMFLAGS += -DNRF51422
+ASMFLAGS += -DNRF51822
 ASMFLAGS += -DBOARD_PCA10028
 ASMFLAGS += -DNRF_SD_BLE_API_VERSION=2
 
@@ -221,12 +221,12 @@ LDFLAGS += --specs=nano.specs -lc -lnosys
 .PHONY: $(TARGETS) default all clean help flash flash_softdevice
 
 # Default target - first one defined
-default: nrf51422_xxac
+default: nrf51822_xxaa
 
 # Print all targets that can be built
 help:
 	@echo following targets are available:
-	@echo 	nrf51422_xxac
+	@echo 	nrf51822_xxac
 
 TEMPLATE_PATH := $(SDK_ROOT)/components/toolchain/gcc
 
@@ -235,7 +235,7 @@ include $(TEMPLATE_PATH)/Makefile.common
 $(foreach target, $(TARGETS), $(call define_target, $(target)))
 
 # Flash the program
-flash: $(OUTPUT_DIRECTORY)/nrf51422_xxac.hex
+flash: $(OUTPUT_DIRECTORY)/nrf51822_xxaa.hex
 	@echo Flashing: $<
 	nrfjprog --program $< -f nrf51 --sectorerase
 	nrfjprog --reset -f nrf51
@@ -247,4 +247,4 @@ flash_softdevice:
 	nrfjprog --reset -f nrf51
 
 erase:
-	nrfjprog --eraseall -f nrf52
+	nrfjprog --eraseall -f nrf51

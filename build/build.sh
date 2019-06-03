@@ -61,7 +61,7 @@ build() {
 merge() {
 	echo "Merge:";
 
-	mergehex -m ./output/nrf51422_xxac.hex ../nRF5_SDK/components/softdevice/s130/hex/s130_nrf51_2.0.1_softdevice.hex -o ./output/nrf51422_xxac_with_softdevice.hex
+	mergehex -m ./output/nrf51822_xxaa.hex ../nRF5_SDK/components/softdevice/s130/hex/s130_nrf51_2.0.1_softdevice.hex -o ./output/nrf51822_xxaa_with_softdevice.hex
 
 	echo "Merge: [done]";
 	print_break_line
@@ -74,7 +74,7 @@ flash() {
 	nrfjprog --family nRF51 -e;
 
 	# flash binary
-	nrfjprog --family nRF51 --program output/nrf51422_xxac_with_softdevice.hex
+	nrfjprog --family nRF51 --program output/nrf51822_xxaa_with_softdevice.hex
 
 	# restart device
 	nrfjprog --family nRF51 -r;
